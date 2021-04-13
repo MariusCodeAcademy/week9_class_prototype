@@ -194,7 +194,7 @@ class Name {
 }
 const n1 = new Name("jOHn", "SMITH");
 const n2 = new Name("BOB", "JONES");
-n2.makeCapital("asdasdasd") = "green";
+// n2.makeCapital("asdasdasd") = "green";
 console.log("n1", n1);
 
 // 7. Sukurti klase kuri myTime
@@ -213,7 +213,15 @@ class MyTime {
   minToHours(min) {
     return min / 60;
   }
+
+  secToMin(sec) {
+    return sec / 60;
+  }
 }
+
+const t1 = new MyTime();
+console.log("t1.minToHours(2345)", t1.minToHours(2345));
+console.log("t1.secToMin(345654)", t1.secToMin(345654));
 
 // 8 uzd
 /*
@@ -231,7 +239,7 @@ addOrder("Kava")  ideti preke i order
 // jei tokio item nera tai pranesti kad siandien tokio neturim 
 amountToPay() uz kokia suma yra orderyje
 buy() - grazinti kokia suma sumoketi ir isvalyti order
-listOrders() - grazina ka turime krepselyje 
+listOrder() - grazina ka turime krepselyje 
 */
 const menu1 = [
   { item: "Kava", type: "gerimas", price: 1.99 },
@@ -243,3 +251,21 @@ const menu1 = [
   { item: "Braskiniai ledai", type: "maistas", price: 0.99 },
   { item: "Braskinis kokteilis", type: "gerimas", price: 3.99 },
 ];
+
+// surasti maziausia
+/**
+ * // susikuriam min =  menu1[0].price
+ * is eileis einu per masyva
+ * ir kas kart tikrinu ar einama prekes kaina yra daugiau ar maziau uz min
+ * ta kuri mazesne lieka min
+ */
+
+// 9 sukurti klase darbuotojas
+// sukuriant objektus paduoti varda, pareigas ir valandini atlyginma
+// sukurti metoda work kuri priima kiek valandu dirbta ir grazina moketina suma
+
+// sukurti 2 dabruotojus ir leisti jiems dirbti
+// w1 dirba 160 val
+// w2 dirba 90 val
+
+// work metodas grazina moketina pinigu suma.
