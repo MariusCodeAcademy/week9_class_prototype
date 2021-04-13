@@ -228,6 +228,7 @@ cheapestItem()
 foodOnly()
 drinksOnly()
 addOrder("Kava")  ideti preke i order
+// jei tokio item nera tai pranesti kad siandien tokio neturim 
 amountToPay() uz kokia suma yra orderyje
 buy() - grazinti kokia suma sumoketi ir isvalyti order
 listOrders() - grazina ka turime krepselyje 
@@ -239,4 +240,6 @@ const menu1 = [
   { item: "Sumustinis su vistiena", type: "maistas", price: 2.59 },
   { item: "Sumustinis su tunu", type: "maistas", price: 2.19 },
   { item: "Desrainis", type: "maistas", price: 3.59 },
+  { item: "Braskiniai ledai", type: "maistas", price: 0.99 },
+  { item: "Braskinis kokteilis", type: "gerimas", price: 3.99 },
 ];
