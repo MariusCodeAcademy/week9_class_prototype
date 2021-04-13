@@ -175,6 +175,8 @@ initials ➞ "J.S."
 */
 class Name {
   constructor(argName, argLastname) {
+    // debugger;
+    this.name = argName;
     this.fname = this.makeCapital(argName);
     this.lname = this.makeCapital(argLastname);
     this.fullName = this.fname + " " + this.lname;
@@ -191,6 +193,8 @@ class Name {
   }
 }
 const n1 = new Name("jOHn", "SMITH");
+const n2 = new Name("BOB", "JONES");
+n2.makeCapital("asdasdasd") = "green";
 console.log("n1", n1);
 
 // 7. Sukurti klase kuri myTime
@@ -210,3 +214,29 @@ class MyTime {
     return min / 60;
   }
 }
+
+// 8 uzd
+/*
+Sukurti Kavines klase 
+kavine priima 3 argumentus name, menu, orders
+name bus kavines pavadinimas
+meniu bus masyvas su maistu
+orders tuscias masyvas uzsakymams
+
+sukurti metodus 
+cheapestItem()
+foodOnly()
+drinksOnly()
+addOrder("Kava")  ideti preke i order
+amountToPay() uz kokia suma yra orderyje
+buy() - grazinti kokia suma sumoketi ir isvalyti order
+listOrders() - grazina ka turime krepselyje 
+*/
+const menu1 = [
+  { item: "Kava", type: "gerimas", price: 1.99 },
+  { item: "Kakava", type: "gerimas", price: 1.89 },
+  { item: "Salta Arbata", type: "gerimas", price: 1.59 },
+  { item: "Sumustinis su vistiena", type: "maistas", price: 2.59 },
+  { item: "Sumustinis su tunu", type: "maistas", price: 2.19 },
+  { item: "Desrainis", type: "maistas", price: 3.59 },
+];
