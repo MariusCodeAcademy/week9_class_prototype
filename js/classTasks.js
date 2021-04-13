@@ -99,8 +99,76 @@ console.log("");
 // sukurimo metu priskiri varda ir amziu
 // parasyti metoda kuri palygina esama asmeni su kitu ir grazina ar kitas
 // asmuo yra vyresnis jaunes ar to paies amziaus
-
-// const p1 = new Person("Bob", 24);
-// const p2 = new Person("James", 27);
+class Person {
+  constructor(vardas, amzius) {
+    this.name = vardas;
+    this.age = amzius;
+  }
+  compare(other) {
+    console.log("compare 1 ");
+    // console.log("other", other);
+    // console.log("this", this);
+    if (this.age < other.age) return `${this.name} is younger than ${other.name}`;
+    if (this.age > other.age) return `${this.name} is older than ${other.name}`;
+    if (this.age === other.age) return `${this.name} is same age as ${other.name}`;
+  }
+}
+const p1 = new Person("Bob", 24);
+const p2 = new Person("James", 27);
+const p3 = new Person("Jane", 24);
 
 // p1.compare(p2); // -> Bob is younger than James
+console.groupCollapsed("4. Compare ages");
+console.log("p1.compare(p2)", p1.compare(p2));
+console.log("p2.compare(p1)", p2.compare(p1));
+console.log("p3.compare(p1)", p3.compare(p1));
+console.groupEnd();
+console.log("");
+
+// 5 Sukurti Apskritimo klase
+// klase argumetu pasiima spinduli
+// ir klase turi 2 metodus
+// getArea() Pi r kvadratu
+//ir getPerimeter() 2 Pi r
+
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+    this.area = this.getArea();
+    this.perimeter = this.getPerimeter();
+  }
+
+  getArea() {
+    let area = Math.PI * this.radius ** 2;
+    return area.toFixed(2);
+  }
+
+  getPerimeter() {
+    let perimeter = 2 * Math.PI * this.radius;
+    return perimeter.toFixed(2);
+  }
+}
+const c1 = new Circle(3);
+const c2 = new Circle(10);
+console.group("5.Sukurti Apskritimo klase");
+console.log("c1.getArea()", c1.getArea());
+console.log("c1.getPerimeter()", c1.getPerimeter());
+console.log("c2.getArea()", c2.getArea());
+console.log("c2.getPerimeter()", c2.getPerimeter());
+console.log("c1", c1);
+
+console.groupEnd();
+console.log("");
+// sukurti pora apskritimo objektu ir atspausdinti plota ir perimetra;
+
+// 6.
+// Sukurti nauja klase Name,
+// ji argumentu pasiima name ir lastName
+// sukurus nauja objekta klase turetu tureti sugeneruotas sias savybes
+/* 
+new Name("john", "SMITH")
+fname ➞ "John"
+lname ➞ "Smith"
+fullname ➞ "John Smith"
+initials ➞ "J.S."
+*/
