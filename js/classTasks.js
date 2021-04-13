@@ -150,7 +150,7 @@ class Circle {
 }
 const c1 = new Circle(3);
 const c2 = new Circle(10);
-console.group("5.Sukurti Apskritimo klase");
+console.groupCollapsed("5.Sukurti Apskritimo klase");
 console.log("c1.getArea()", c1.getArea());
 console.log("c1.getPerimeter()", c1.getPerimeter());
 console.log("c2.getArea()", c2.getArea());
@@ -166,9 +166,47 @@ console.log("");
 // ji argumentu pasiima name ir lastName
 // sukurus nauja objekta klase turetu tureti sugeneruotas sias savybes
 /* 
-new Name("john", "SMITH")
+// new Name("john", "SMITH")
+new Name("jAMES", "BroWN")
 fname ➞ "John"
 lname ➞ "Smith"
 fullname ➞ "John Smith"
 initials ➞ "J.S."
 */
+class Name {
+  constructor(argName, argLastname) {
+    this.fname = this.makeCapital(argName);
+    this.lname = this.makeCapital(argLastname);
+    this.fullName = this.fname + " " + this.lname;
+    this.initials = this.makeInit();
+  }
+
+  // pagalbinis metodas gauti capital case zodi
+  makeCapital(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  }
+  // pagalbnis metodas gauti inicialam
+  makeInit() {
+    return `${this.fname.charAt(0)}.${this.lname.charAt(0)}.`;
+  }
+}
+const n1 = new Name("jOHn", "SMITH");
+console.log("n1", n1);
+
+// 7. Sukurti klase kuri myTime
+// clase turi tureti metodus
+// paversti minutes i valandas
+// paversti sekundes i min
+// paversti valandas i dienas
+// paversti dienas i savaites
+// panaudojan turimus metodus =========
+// paversi sekundes i dienas
+// paversi valandas i savaites
+
+class MyTime {
+  constructor() {}
+
+  minToHours(min) {
+    return min / 60;
+  }
+}
