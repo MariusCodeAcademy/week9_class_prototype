@@ -247,7 +247,7 @@ const menu1 = [
   { item: "Kakava", type: "gerimas", price: 1.89 },
   { item: "Salta Arbata", type: "gerimas", price: 1.59 },
   { item: "Sumustinis su vistiena", type: "maistas", price: 2.59 },
-  { item: "Sumustinis su tunu", type: "maistas", price: 2.19 },
+  { item: "Sumustinis su tunu", type: "maistas", price: 0.99 },
   { item: "Desrainis", type: "maistas", price: 3.59 },
   { item: "Braskiniai ledai", type: "maistas", price: 0.99 },
   { item: "Braskinis kokteilis", type: "gerimas", price: 3.99 },
@@ -276,15 +276,41 @@ class Kavine {
     // sukti cikla ir ziureti ar ciklo metu rasim pigesniu
     // jei rasim tai nustatysim minPrice is naujo
     console.log("minPrice", minPrice);
-
+    let minPriceObj;
     this.menu.forEach((menuItemObj) => {
-      console.log("menuItemObj.price", menuItemObj.price);
+      // console.log("menuItemObj.price", menuItemObj.price);
+      if (minPrice > menuItemObj.price) {
+        // radom pigesne
+        minPrice = menuItemObj.price;
+        // kai tik randam pigesne preke issisaugom prekes objekta
+        minPriceObj = menuItemObj;
+        // console.log("minPriceObj tarpinis", minPriceObj);
+      } else {
+        // neradom pigesnes
+      }
     });
+    console.log("minPrice po ciklo", minPrice);
+    console.log("minPriceObj", minPriceObj);
+    return minPriceObj;
+  }
+
+  /**
+   * prideti preke i uzsakyma
+   */
+  addOrder(itemName) {
+    console.log("this.order pries", this.order);
+    // surasti meniu objekta kurio item === itemName
+    this.order.push(this.menu[2]);
+    console.log("this.order po", this.order);
+    //
   }
 }
 const orders = [];
 const cav1 = new Kavine("Best Coffe in Town", menu1, orders);
-cav1.cheapestItem();
+// cav1.cheapestItem();
+cav1.addOrder("Kava");
+console.log("orders isorinis", orders);
+
 // const cav2 = new Kavine(
 //   "Best Coffe in Town2",
 //   [
