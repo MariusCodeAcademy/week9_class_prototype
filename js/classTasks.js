@@ -300,25 +300,26 @@ class Kavine {
   addOrder(itemName) {
     console.log("this.order pries", this.order);
     // surasti meniu objekta kurio item === itemName
-    this.order.push(this.menu[2]);
+    let uzsakytasObjektas = this.menu.find((menuItemObj) => menuItemObj.item === itemName);
+    if (uzsakytasObjektas === undefined) {
+      console.warn("Tokios prekes nera: ", itemName);
+      return;
+    }
+    this.order.push(uzsakytasObjektas);
     console.log("this.order po", this.order);
     //
+  }
+  foodOnly() {
+    // filtruoti musu meniu ir atrinkti tik tuos produktus kurie yra maistas
   }
 }
 const orders = [];
 const cav1 = new Kavine("Best Coffe in Town", menu1, orders);
 // cav1.cheapestItem();
-cav1.addOrder("Kava");
-console.log("orders isorinis", orders);
 
-// const cav2 = new Kavine(
-//   "Best Coffe in Town2",
-//   [
-//     { item: "Kava", type: "gerimas", price: 1.99 },
-//     { item: "Kava", type: "gerimas", price: 1.99 },
-//   ],
-//   []
-// );
+cav1.addOrder("Kava");
+cav1.addOrder("Desrainis");
+cav1.addOrder("kazkas");
 
 console.log("cav1", cav1);
 
