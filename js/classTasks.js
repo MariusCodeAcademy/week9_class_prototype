@@ -241,6 +241,7 @@ amountToPay() uz kokia suma yra orderyje
 buy() - grazinti kokia suma sumoketi ir isvalyti order
 listOrder() - grazina ka turime krepselyje 
 */
+console.clear();
 const menu1 = [
   { item: "Kava", type: "gerimas", price: 1.99 },
   { item: "Kakava", type: "gerimas", price: 1.89 },
@@ -251,6 +252,49 @@ const menu1 = [
   { item: "Braskiniai ledai", type: "maistas", price: 0.99 },
   { item: "Braskinis kokteilis", type: "gerimas", price: 3.99 },
 ];
+
+function sumValues(a, b) {
+  let kita = a;
+  let kita2 = b;
+}
+// console.log("a", a);
+
+class Kavine {
+  constructor(vardas, esamasMeniu, order) {
+    this.name = vardas;
+    this.menu = esamasMeniu;
+    this.order = order;
+    console.table(this.menu);
+  }
+  // console.log('esamasMeniu'); // undefined
+
+  /**
+   * grazinam pati pigiausia meniu item objekta
+   */
+  cheapestItem() {
+    let minPrice = this.menu[0].price;
+    // sukti cikla ir ziureti ar ciklo metu rasim pigesniu
+    // jei rasim tai nustatysim minPrice is naujo
+    console.log("minPrice", minPrice);
+
+    this.menu.forEach((menuItemObj) => {
+      console.log("menuItemObj.price", menuItemObj.price);
+    });
+  }
+}
+const orders = [];
+const cav1 = new Kavine("Best Coffe in Town", menu1, orders);
+cav1.cheapestItem();
+// const cav2 = new Kavine(
+//   "Best Coffe in Town2",
+//   [
+//     { item: "Kava", type: "gerimas", price: 1.99 },
+//     { item: "Kava", type: "gerimas", price: 1.99 },
+//   ],
+//   []
+// );
+
+console.log("cav1", cav1);
 
 // surasti maziausia
 /**
@@ -269,3 +313,45 @@ const menu1 = [
 // w2 dirba 90 val
 
 // work metodas grazina moketina pinigu suma.
+
+// console.clear();
+class Workman {
+  constructor(argName, argOcupation, argHourlyPay) {
+    // console.log("Workman created");
+
+    this.name = argName;
+    this.ocupation = argOcupation;
+    this.hourlyPay = argHourlyPay;
+    this.hoursWorked = 0;
+  }
+  work(howManuyHours) {
+    this.hoursWorked += howManuyHours;
+    console.log(this.name, "worked hours", howManuyHours, "and total hours: ", this.hoursWorked);
+  }
+
+  paySalary() {
+    const totalHours = this.hoursWorked;
+    // nunulinti apmoketa valandas
+    this.hoursWorked = 0;
+    // this.reset();
+    // grazinti kiek pinigu sumoketi
+    console.log("pay", totalHours * this.hourlyPay);
+    return totalHours * this.hourlyPay;
+  }
+  reset() {
+    this.hoursWorked = 0;
+  }
+}
+
+const w1 = new Workman("Bob", "Developer", 14);
+// w1.work(10);
+// w1.work(20);
+// w1.work(130);
+// w1.paySalary();
+// w1.work(20);
+
+const w2 = new Workman("James", "Assitant", 8);
+// w2.work(50);
+// w2.work(40);
+// w2.paySalary();
+// console.log("w1", w1);
