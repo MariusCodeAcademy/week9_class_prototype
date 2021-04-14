@@ -23,7 +23,7 @@ u2.addPost();
 // u2.addUser("aa", 32);
 
 // sukurti masyva vartotoju
-const users = [new User("Jone", 23), new User("Bob", 43), new User("Kevin", 33)];
+let users = [new User("Jone", 23), new User("Bob", 43), new User("Kevin", 33)];
 console.log("users", users);
 
 // kevin say hi
@@ -48,7 +48,11 @@ class Admin extends User {
     console.log("user to delete", userObjToDelete);
     let deleteIndex = users.indexOf(userObjToDelete);
     console.log("deleteIndex", deleteIndex);
-    users.splice(deleteIndex, 1);
+    // users.splice(deleteIndex, 1);
+    // istrynimas su filter
+    // filtruoti ir grazinti viska isskyrus ta kuri mes norim istrinti
+    users = users.filter((userObj) => userObj !== userObjToDelete);
+
     console.log(`admin ${this.name} delete user ${userObjToDelete.name}`);
   }
   // overriding a method in parent class
