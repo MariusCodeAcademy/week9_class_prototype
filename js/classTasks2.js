@@ -4,11 +4,30 @@ console.log("class tasks 2");
 // 1. Sukurti klasę Automobilis
 //   - sukurti konstruktorių, su 3 argumentais:
 //     - marke, modelis, kaina
+class Automobilis {
+  constructor(gamintojas, modelioPav, kiekKainuoja) {
+    this.marke = gamintojas;
+    this.modelis = modelioPav;
+    this.kaina = kiekKainuoja;
+  }
+}
+
+let a1 = new Automobilis("BMW", "330", 2000);
+a1.padidintiKaina(); // kaina 2100
+a1.padidintiKaina(); // kaina 2200
+console.log("a1", a1);
 
 // 2. Sukurkite 4 skirtingus automobilius pagal klasę Automobilis kintamuosiuose arba masyve:
+let automobiliai = [
+  new Automobilis("BMW", "330", 2000),
+  new Automobilis("Audi", "A8", 3350),
+  new Automobilis("Opel", "Vectra", 1050),
+  new Automobilis("MB", "600", 5000),
+];
 
 // 3. Atsispausdinkite car1, car2, car3, car4 kintamuosius.
 // Peržiūrėkite juos konsolėje, panagrinėkite kas yra tie objektai
+console.log(automobiliai);
 
 // 4 sukurti metoda info kuri grazina koks tai yra automobilis string pavidalu pvz "automobilis BMW 3, kaina 4000"
 
