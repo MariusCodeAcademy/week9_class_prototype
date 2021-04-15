@@ -33,9 +33,19 @@ console.log("class tasks 2");
 // 12 Sukurkite klase AutoParduotuve
 // sukurimo metu sukurkite savybe parduodamiAutomobiliai tuscia masyva
 
-// 13 pridekite AutoParduotuvei metoda itrauktiAutomobili() kuris priima automobili sukurta pagal Automobilis klase ir
-// prideda ji prie savo parduodamiAutomobiliai masyvo
+// 13 pridekite AutoParduotuvei metoda itrauktiAutomobili() kuris priima automobili sukurta pagal
+// Automobilis klase ir prideda ji prie savo parduodamiAutomobiliai masyvo
 
 // 14 Pridekite AutoParduotuves klasei savybe balansas ir prilyginkite ja 0
 // pridekite metoda priktiAutomobili(id) kuris priima id automobilio kuri nori pirkti
 // nupirkimo metu pinigai uz automobili keliauja i balansa o automobilis pasalinamas is parduodamiAutomobiliai masyvo.
+
+// 15 Sukurti klase Saskaita
+// saskaita priima Automobilis objekta ir kliento varda ir pavarde
+// igyvendinti kad kiekviena nauja saskaita turetu didejanti skaiciu nuo 1
+// prideti metoda israsytiPirkimoSaskaita() kuri grazina
+// Pirkimo saskaita Nr 1
+// siandieno data
+// perkamo automobilio info
+// prikejo varda pavarde
+// aciu kad pirkote
