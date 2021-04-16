@@ -126,22 +126,46 @@ class AutoParduotuve {
   }
   priktiAutomobili(autoId) {
     // surasti auto pagal id
+    let rastasAuto = this.surastiAautomobili(autoId);
+    if (!rastasAuto) {
+      console.warn(autoId, "tokio auto nera");
+      return;
+    }
     // paimti pinigu suma kiek jis kainuoja ir prideti prie balanso
+    // console.log("rastasAuto", rastasAuto.kaina);
+    this.balansas += rastasAuto.kaina;
+
     // pasalinti automobili is parduodamiAutomobiliai
+    // budas su filter =======================================
+    this.parduodamiAutomobiliai = this.parduodamiAutomobiliai.filter((pardAutoObj) => autoId !== pardAutoObj.id);
+    // budas su splice =======================================
+    // console.log("index", this.parduodamiAutomobiliai.indexOf(rastasAuto));
+    // let deleteIndex = this.parduodamiAutomobiliai.indexOf(rastasAuto);
+    // this.parduodamiAutomobiliai.splice(deleteIndex, 1);
+  }
+  // pagalbinis metodas surasti auto pagal id
+  surastiAautomobili(autoId) {
+    let suradauAuto = this.parduodamiAutomobiliai.find((autoObj) => autoId === autoObj.id);
+    return suradauAuto;
   }
 }
 let a2 = {
   kaina: 9000,
   marke: "BMW",
   modelis: "330",
+  inStock: true,
 };
 console.clear();
 let shop1 = new AutoParduotuve("Best Cars Ever");
 console.log("shop1", shop1);
-shop1.itrauktiAutomobili(a1);
-shop1.itrauktiAutomobili(automobiliai[1]);
+// shop1.itrauktiAutomobili(a1);
+// shop1.itrauktiAutomobili(automobiliai[1]);
 // shop1.itrauktiAutomobili(a2);
-shop1.priktiAutomobili(123);
+automobiliai.forEach((auto) => shop1.itrauktiAutomobili(auto));
+shop1.priktiAutomobili("auto_3");
+shop1.priktiAutomobili("auto_4");
+
+// shop1.surastiAautomobili("auto_3");
 
 // 13 pridekite AutoParduotuvei metoda itrauktiAutomobili() kuris priima automobili sukurta pagal
 // Automobilis klase ir prideda ji prie savo parduodamiAutomobiliai masyvo
@@ -176,3 +200,11 @@ shop1.priktiAutomobili(123);
 // GenerateHtml.generuotiSarasa(parduodamiAutomobiliai);
 // 17.2 generateTable() - paima parduotuves objekta ir sugeneruoja html lenteles teksta
 // GenerateHtml.generateTable(shop1);
+
+// console.clear();
+// let bbb = [1, 3, 5];
+
+// console.log("bbb", bbb);
+// // bbb.splice(1, 1);
+// bbb = bbb.filter((num) => num !== 3);
+// console.log("bbb", bbb);
