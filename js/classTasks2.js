@@ -207,8 +207,8 @@ console.log("shop1", shop1);
 // shop1.itrauktiAutomobili(automobiliai[1]);
 // shop1.itrauktiAutomobili(a2);
 automobiliai.forEach((auto) => shop1.itrauktiAutomobili(auto));
-console.log('shop1.priktiAutomobili("auto_3")', shop1.priktiAutomobili("auto_3"));
-console.log('shop1.priktiAutomobili("auto_4")', shop1.priktiAutomobili("auto_4"));
+// console.log('shop1.priktiAutomobili("auto_3")', shop1.priktiAutomobili("auto_3"));
+// console.log('shop1.priktiAutomobili("auto_4")', shop1.priktiAutomobili("auto_4"));
 
 // shop1.priktiAutomobili("auto_4");
 
@@ -235,7 +235,22 @@ console.log('shop1.priktiAutomobili("auto_4")', shop1.priktiAutomobili("auto_4")
 // html rikiuoto saraso pavidalu automobiliu info
 // GenerateHtml.generuotiSarasa(parduodamiAutomobiliai);
 // 17.2 generateTable() - paima parduotuves objekta ir sugeneruoja html lenteles teksta
-// GenerateHtml.generateTable(shop1);
+class GenerateHtml {
+  static generuotiSarasa(shopObj) {
+    let list = GenerateHtml.genListItems(shopObj.parduodamiAutomobiliai);
+    return `<ol> ${list} </ol>`;
+  }
+  // pagalbine funkcija kuri sugeruoja sarasa is masyvo
+  static genListItems(arr) {
+    let sarasoString = "";
+    arr.forEach((autoObj) => {
+      sarasoString += `<li> ${autoObj.autoInfo()} </li>`;
+    });
+    // console.log("sarasoString", sarasoString);
+    return sarasoString;
+  }
+}
+console.log("GenerateHtml.generuotiSarasa(shop1)", GenerateHtml.generuotiSarasa(shop1));
 
 // console.clear();
 // let bbb = [1, 3, 5];
