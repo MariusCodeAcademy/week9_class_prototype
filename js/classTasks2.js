@@ -257,3 +257,10 @@ console.log('shop1.priktiAutomobili("auto_4")', shop1.priktiAutomobili("auto_4")
 // sukurti setterius ir getterius slaptazodis, alga savybems
 
 // sukurti tik getteri stazo savybei
+
+// 18 sukurti klase CarLog kuri seka musu programos vygdyma ir uzregistruoja kiekviena veiksma ir laika kada jis ivyko
+// sukuriam nauja automobili
+// sukuriam parduotuve
+// parduodam automobili
+// israsom saskaita
+//
