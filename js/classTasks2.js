@@ -208,3 +208,16 @@ shop1.priktiAutomobili("auto_4");
 // // bbb.splice(1, 1);
 // bbb = bbb.filter((num) => num !== 3);
 // console.log("bbb", bbb);
+
+// set get uzdavinys
+// 1sg sukurti Darbuotojo klase,
+// sukuriant darbuotoja nustatyti savybes
+// vardas public
+// pareigos public
+// slaptazodis private
+// alga private
+// stazas private
+
+// sukurti setterius ir getterius slaptazodis, alga savybems
+
+// sukurti tik getteri stazo savybei
