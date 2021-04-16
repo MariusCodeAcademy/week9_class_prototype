@@ -103,6 +103,47 @@ console.log("Sukurta autmobiliu", Automobilis.autoSkaicius);
 
 // 11 Sugeneruokite randomId kiekvienam sukurtam automobiliui sukurimo metu ir pridekite kaip savybe
 
+// 15 Sukurti klase Saskaita
+// saskaita priima AutoParduotuves obj Automobilis objekta ir kliento varda ir pavarde
+// igyvendinti kad kiekviena nauja saskaita turetu didejanti skaiciu nuo 1
+// prideti metoda israsytiPirkimoSaskaita() kuri grazina
+// Pirkimo saskaita Nr 1
+// Parduotives pavadinmas
+// siandieno data
+// perkamo automobilio info
+// prikejo varda pavarde
+// aciu kad pirkote
+class Saskaita {
+  static sasCount = 1;
+  constructor(parduotuvesPavadinimas, koksAutomobilis, klientoVardas, klientoPavarde) {
+    this.autoParduotuve = parduotuvesPavadinimas;
+    this.automobilis = koksAutomobilis;
+    this.klientoVardas = klientoVardas;
+    this.klientoPavarde = klientoPavarde;
+    this.saskaitosNr = Saskaita.sasCount++; // Saskaita.saskaitosNr++
+  }
+  israsytiPirkimoSaskaita() {
+    return `
+    Pirkimo pardavimo saskaita Nr ${this.saskaitosNr},
+    Parduotuve: ${this.autoParduotuve},
+    Prikimo data: ${this.saskaitosData},
+    Perkamas Automobilis: ${this.automobilis.autoInfo()},
+    Pirkejas: ${this.klientoVardas} ${this.klientoPavarde},
+    Aciu kad pirkote.
+    `;
+  }
+  get saskaitosData() {
+    let now = new Date();
+    return now.toLocaleDateString();
+  }
+}
+// let sas1 = new Saskaita("Best shop ever", a1, "James", "Brown");
+// let sas2 = new Saskaita(shop1, a1, "James", "Brown");
+// console.log("sas1", sas1);
+// console.log("sas1", sas1.israsytiPirkimoSaskaita());
+// let sas3 = new Saskaita(shop2, automobiliai[3], "Jane", "White");
+// console.log("sas3", sas3.israsytiPirkimoSaskaita());
+
 // 12 Sukurkite klase AutoParduotuve
 // sukurimo metu sukurkite savybe parduodamiAutomobiliai tuscia masyva
 // ir priima pavadinma argumentu new AutoParduotuve('bestCars')
@@ -142,6 +183,9 @@ class AutoParduotuve {
     // console.log("index", this.parduodamiAutomobiliai.indexOf(rastasAuto));
     // let deleteIndex = this.parduodamiAutomobiliai.indexOf(rastasAuto);
     // this.parduodamiAutomobiliai.splice(deleteIndex, 1);
+
+    // irasyti saskaita
+    return new Saskaita(this.parduotuvesPavadinimas, rastasAuto, "James", "Brown");
   }
   // pagalbinis metodas surasti auto pagal id
   surastiAautomobili(autoId) {
@@ -157,13 +201,16 @@ let a2 = {
 };
 console.clear();
 let shop1 = new AutoParduotuve("Best Cars Ever");
+let shop2 = new AutoParduotuve("New cars");
 console.log("shop1", shop1);
 // shop1.itrauktiAutomobili(a1);
 // shop1.itrauktiAutomobili(automobiliai[1]);
 // shop1.itrauktiAutomobili(a2);
 automobiliai.forEach((auto) => shop1.itrauktiAutomobili(auto));
-shop1.priktiAutomobili("auto_3");
-shop1.priktiAutomobili("auto_4");
+console.log('shop1.priktiAutomobili("auto_3")', shop1.priktiAutomobili("auto_3"));
+console.log('shop1.priktiAutomobili("auto_4")', shop1.priktiAutomobili("auto_4"));
+
+// shop1.priktiAutomobili("auto_4");
 
 // shop1.surastiAautomobili("auto_3");
 
@@ -176,17 +223,6 @@ shop1.priktiAutomobili("auto_4");
 // pridekite metoda priktiAutomobili(id) kuris priima id automobilio kuri nori pirkti
 // nupirkimo metu pinigai uz automobili keliauja i balansa o automobilis pasalinamas
 // is parduodamiAutomobiliai masyvo.
-
-// 15 Sukurti klase Saskaita
-// saskaita priima AutoParduotuves obj Automobilis objekta ir kliento varda ir pavarde
-// igyvendinti kad kiekviena nauja saskaita turetu didejanti skaiciu nuo 1
-// prideti metoda israsytiPirkimoSaskaita() kuri grazina
-// Pirkimo saskaita Nr 1
-// Parduotives pavadinmas
-// siandieno data
-// perkamo automobilio info
-// prikejo varda pavarde
-// aciu kad pirkote
 
 // 16 sukurti 2 parduotuves ir sukelti automobilius i jas
 // parduoti visus automobilius ir israsyti saskaitas
