@@ -80,10 +80,13 @@ console.log(automobiliai);
 // 8.2 padidinkite paskutinio automobilio kaina 500
 a1.padidintiSimtu();
 console.log("a1", a1);
-
+// console.clear();
 // jei return this tai galim chain
 automobiliai[0].padidintiSimtu().padidintiSimtu().padidintiSimtu();
-// automobiliai[0].padidintiSimtu();
+// console.log("automobiliai[0].padidintiSimtu()", automobiliai[0].padidintiSimtu());
+
+automobiliai[0].padidintiSimtu();
+
 // automobiliai[0].padidintiSimtu();
 
 automobiliai[3].padidintiSimtu().padidintiSimtu().padidintiSimtu().padidintiSimtu().padidintiSimtu();
@@ -103,23 +106,55 @@ console.log("Sukurta autmobiliu", Automobilis.autoSkaicius);
 // 12 Sukurkite klase AutoParduotuve
 // sukurimo metu sukurkite savybe parduodamiAutomobiliai tuscia masyva
 // ir priima pavadinma argumentu new AutoParduotuve('bestCars')
-
-// 13 pridekite AutoParduotuvei metoda itrauktiAutomobili() kuris priima automobili sukurta pagal
-// Automobilis klase ir prideda ji prie savo parduodamiAutomobiliai masyvo
-// patikrinti ar gautas objektas sukurta paga Automobilio klase. instanceOf()
-// toks netureti buti tinkamas itraukti
+class AutoParduotuve {
+  // field - laukas
+  balansas = 0;
+  constructor(pavad) {
+    // property - savybe
+    this.parduodamiAutomobiliai = [];
+    this.parduotuvesPavadinimas = pavad;
+  }
+  itrauktiAutomobili(autoObj) {
+    // nepriimti obj jei jie nesukurti pagal Automobilis klase
+    if (autoObj instanceof Automobilis) {
+      // console.log("<<sukurtas teisingai ========>>");
+      this.parduodamiAutomobiliai.push(autoObj);
+      return;
+    }
+    console.warn("Netinkamas objektas========= >>");
+    // console.log("this.parduodamiAutomobiliai", this.parduodamiAutomobiliai);
+  }
+  priktiAutomobili(autoId) {
+    // surasti auto pagal id
+    // paimti pinigu suma kiek jis kainuoja ir prideti prie balanso
+    // pasalinti automobili is parduodamiAutomobiliai
+  }
+}
 let a2 = {
   kaina: 9000,
   marke: "BMW",
   modelis: "330",
 };
+console.clear();
+let shop1 = new AutoParduotuve("Best Cars Ever");
+console.log("shop1", shop1);
+shop1.itrauktiAutomobili(a1);
+shop1.itrauktiAutomobili(automobiliai[1]);
+// shop1.itrauktiAutomobili(a2);
+shop1.priktiAutomobili(123);
+
+// 13 pridekite AutoParduotuvei metoda itrauktiAutomobili() kuris priima automobili sukurta pagal
+// Automobilis klase ir prideda ji prie savo parduodamiAutomobiliai masyvo
+// patikrinti ar gautas objektas sukurta paga Automobilio klase. instanceof
+// toks netureti buti tinkamas itraukti
 
 // 14 Pridekite AutoParduotuves klasei savybe balansas ir prilyginkite ja 0
 // pridekite metoda priktiAutomobili(id) kuris priima id automobilio kuri nori pirkti
-// nupirkimo metu pinigai uz automobili keliauja i balansa o automobilis pasalinamas is parduodamiAutomobiliai masyvo.
+// nupirkimo metu pinigai uz automobili keliauja i balansa o automobilis pasalinamas
+// is parduodamiAutomobiliai masyvo.
 
 // 15 Sukurti klase Saskaita
-// saskaita priima Automobilis objekta ir kliento varda ir pavarde
+// saskaita priima AutoParduotuves obj Automobilis objekta ir kliento varda ir pavarde
 // igyvendinti kad kiekviena nauja saskaita turetu didejanti skaiciu nuo 1
 // prideti metoda israsytiPirkimoSaskaita() kuri grazina
 // Pirkimo saskaita Nr 1
@@ -131,3 +166,13 @@ let a2 = {
 
 // 16 sukurti 2 parduotuves ir sukelti automobilius i jas
 // parduoti visus automobilius ir israsyti saskaitas
+
+// 17 Sugeneruoti lentele
+// pridekite dar bent 5 automobilius i viena is autoParduotuviu
+// sukurkite klase GenerateHtml
+// si klase tures statinius metodus
+// 17.1 generuotiSarasa - paima turimus automobilius parduotuveje ir grazina
+// html rikiuoto saraso pavidalu automobiliu info
+// GenerateHtml.generuotiSarasa(parduodamiAutomobiliai);
+// 17.2 generateTable() - paima parduotuves objekta ir sugeneruoja html lenteles teksta
+// GenerateHtml.generateTable(shop1);
