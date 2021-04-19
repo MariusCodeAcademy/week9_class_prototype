@@ -1,6 +1,19 @@
 "use strict";
 console.log("class tasks 2");
 
+class CarLog {
+  // vieta kur saugosim veiksmus
+  static veiksmai = [];
+  // metodas veiksmui issaugoti
+  static registruokVeiksma() {
+    let veiksmas = {
+      pav: "sukurtas automobilis",
+      laikas: "9:00",
+    };
+    CarLog.veiksmai.push(veiksmas);
+  }
+}
+
 // 1. Sukurti klasę Automobilis
 //   - sukurti konstruktorių, su 3 argumentais:
 //     - marke, modelis, kaina
@@ -13,6 +26,7 @@ class Automobilis {
     this.modelis = modelioPav;
     this.kaina = kiekKainuoja;
     Automobilis.autoSkaicius++;
+    CarLog.registruokVeiksma();
   }
   // info metodas
   autoInfo() {
@@ -20,6 +34,7 @@ class Automobilis {
   }
   // add 100
   padidintiSimtu() {
+    CarLog.registruokVeiksma();
     let padidintaKaina = this.kaina + 100;
     this.kaina = padidintaKaina;
     // this.kaina += 100;
@@ -28,6 +43,7 @@ class Automobilis {
   }
   // nustatytiKaina
   nustatytiKaina(naujaKaina) {
+    CarLog.registruokVeiksma();
     if (typeof naujaKaina === "number" && naujaKaina > 0 && !isNaN(naujaKaina)) {
       this.kaina = naujaKaina;
     } else {
@@ -249,8 +265,47 @@ class GenerateHtml {
     // console.log("sarasoString", sarasoString);
     return sarasoString;
   }
+  // metodas generuoti lentele
+  static generuotiLentele({ parduodamiAutomobiliai }) {
+    let lentelesEilutes = GenerateHtml.generuotiLentelesEilutes(parduodamiAutomobiliai);
+    let tableString = `
+    <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Gamintojas</th>
+        <th>Modelis</th>
+        <th>Kaina (Eur)</th>
+      </tr>
+      </thead>
+      <tbody>
+        ${lentelesEilutes}
+      </tbody>
+    </table>
+    `;
+    // ikelsti tekstini html i el su id 'table-gen'
+    document.getElementById("table-gen").innerHTML = tableString;
+    return tableString;
+  }
+  static generuotiLentelesEilutes(arr) {
+    let eilutesPagalmasyva = "";
+    arr.forEach((autoObj) => {
+      eilutesPagalmasyva += `
+      <tr>
+        <td>${autoObj.id}</td>
+        <td>${autoObj.marke}</td>
+        <td>${autoObj.modelis}</td>
+        <td>${autoObj.kaina}</td>
+      </tr>
+      `;
+    });
+    console.log("eilutesPagalmasyva", eilutesPagalmasyva);
+    return eilutesPagalmasyva;
+  }
 }
-console.log("GenerateHtml.generuotiSarasa(shop1)", GenerateHtml.generuotiSarasa(shop1));
+// console.log("GenerateHtml.generuotiSarasa(shop1)", GenerateHtml.generuotiSarasa(shop1));
+// GenerateHtml.generuotiLentelesEilutes(shop1.parduodamiAutomobiliai);
+console.log("GenerateHtml.generuotiLentele(shop1)", GenerateHtml.generuotiLentele(shop1));
 
 // console.clear();
 // let bbb = [1, 3, 5];

@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script src="./js/class.js"></script> -->
     <!-- <script src="./js/classTasks.js"></script> -->
-    <script src="./js/classTasks2.js"></script>
+    <script src="./js/classTasks2.js" defer></script>
     <!-- <script src="./js/inherit.js"></script> -->
     <!-- <script src="./js/inheritTask.js"></script> -->
     <!-- <script src="./js/setGet.js"></script> -->
     <title>Classes</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table td,
+      table th {
+        border: 1px solid #000;
+        font-size: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1>Classes F12 to start</h1>
@@ -20,17 +31,41 @@
       <li>Automobilis Opel Vectra kainuja 1050 Eur</li>
       <li>Automobilis MB 600 kainuja 5500 Eur</li>
     </ol>
-    <table>
+
+    <!-- <table>
       <tr>
         <th>id</th>
-        <th>pav</th>
+        <th>Gamintojas</th>
+        <th>Modelis</th>
+        <th>Kaina (Eur)</th>
       </tr>
       <tbody>
         <tr>
-          <td>1</td>
+          <td>auto_2</td>
           <td>BMW</td>
+          <td>330</td>
+          <td>2400</td>
+        </tr>
+        <tr>
+          <td>auto_3</td>
+          <td>Audi</td>
+          <td>A8</td>
+          <td>3350</td>
+        </tr>
+        <tr>
+          <td>auto_4</td>
+          <td>Opel</td>
+          <td>Vectra</td>
+          <td>1050</td>
+        </tr>
+        <tr>
+          <td>auto_5</td>
+          <td>MB</td>
+          <td>600</td>
+          <td>5500</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
+    <div id="table-gen"></div>
   </body>
 </html>
