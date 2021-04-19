@@ -10,6 +10,11 @@ console.log("inherit people");
 class Person {
   constructor({ name, surname, idCode, age, sex }) {
     this.name = name;
+    this.surname = surname;
+    this.idCode = idCode;
+    this.age = age;
+    this.age = age;
+    this.sex = sex;
   }
 }
 let p1Data = {
@@ -40,12 +45,12 @@ const w1 = new Workoholic(
 
 // 2 Sukuriam klase Worker kuri paveldi klase Person
 // prideti konstruktoriuje papildomas savybes
-// privati hours worked kuri bus lygi nuliu;
+// privati HOURSCOUNT kuri bus lygi nuliu;
 // savybe privati hourlyPay;
-// prideti metoda workHours()
+// prideti metoda workHours(10)
 // parametru pasiima kiek val isdirba
 // metodas calcPay() paskaiciuoja atlyginima su
-// visa reikiama logika
+// visa reikiama logika (paskaiciuojam atlyginima ir nunulinam valandas)
 
 // 3 sukurti klase Partner()
 // klase paveldi Person()
