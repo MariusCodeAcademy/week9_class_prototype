@@ -46,6 +46,10 @@ u1.userName = "John";
 
 // nuskaityti usename
 console.log("u1.userName", u1.userName);
+// setter
+u1.password = "sdsd";
+// getteris
+console.log("u1.password", u1.password);
 
 console.log("u1", u1);
 

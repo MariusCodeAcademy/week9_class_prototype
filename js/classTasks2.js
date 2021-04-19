@@ -5,12 +5,16 @@ class CarLog {
   // vieta kur saugosim veiksmus
   static veiksmai = [];
   // metodas veiksmui issaugoti
-  static registruokVeiksma() {
+  static registruokVeiksma(koksVeiksmas) {
+    let now = new Date();
     let veiksmas = {
-      pav: "sukurtas automobilis",
-      laikas: "9:00",
+      pav: koksVeiksmas,
+      laikas: now.toTimeString(),
     };
     CarLog.veiksmai.push(veiksmas);
+  }
+  static atspausdinkVeiksmus() {
+    console.log(CarLog.veiksmai);
   }
 }
 
@@ -26,7 +30,7 @@ class Automobilis {
     this.modelis = modelioPav;
     this.kaina = kiekKainuoja;
     Automobilis.autoSkaicius++;
-    CarLog.registruokVeiksma();
+    CarLog.registruokVeiksma("sukurtas Automobilis");
   }
   // info metodas
   autoInfo() {
@@ -34,7 +38,7 @@ class Automobilis {
   }
   // add 100
   padidintiSimtu() {
-    CarLog.registruokVeiksma();
+    CarLog.registruokVeiksma("kaina padidinta simtu");
     let padidintaKaina = this.kaina + 100;
     this.kaina = padidintaKaina;
     // this.kaina += 100;
@@ -43,7 +47,7 @@ class Automobilis {
   }
   // nustatytiKaina
   nustatytiKaina(naujaKaina) {
-    CarLog.registruokVeiksma();
+    CarLog.registruokVeiksma("nustatyta nauja kaina");
     if (typeof naujaKaina === "number" && naujaKaina > 0 && !isNaN(naujaKaina)) {
       this.kaina = naujaKaina;
     } else {
@@ -137,8 +141,10 @@ class Saskaita {
     this.klientoVardas = klientoVardas;
     this.klientoPavarde = klientoPavarde;
     this.saskaitosNr = Saskaita.sasCount++; // Saskaita.saskaitosNr++
+    CarLog.registruokVeiksma("Sukurta nauja saskaita");
   }
   israsytiPirkimoSaskaita() {
+    CarLog.registruokVeiksma("Israsyta saskaita");
     return `
     Pirkimo pardavimo saskaita Nr ${this.saskaitosNr},
     Parduotuve: ${this.autoParduotuve},
@@ -170,8 +176,10 @@ class AutoParduotuve {
     // property - savybe
     this.parduodamiAutomobiliai = [];
     this.parduotuvesPavadinimas = pavad;
+    CarLog.registruokVeiksma("Sukurta nauja parduotuve");
   }
   itrauktiAutomobili(autoObj) {
+    CarLog.registruokVeiksma("Itrauktas naujas automobilis");
     // nepriimti obj jei jie nesukurti pagal Automobilis klase
     if (autoObj instanceof Automobilis) {
       // console.log("<<sukurtas teisingai ========>>");
@@ -182,6 +190,7 @@ class AutoParduotuve {
     // console.log("this.parduodamiAutomobiliai", this.parduodamiAutomobiliai);
   }
   priktiAutomobili(autoId) {
+    CarLog.registruokVeiksma("nupirktas Automobilis");
     // surasti auto pagal id
     let rastasAuto = this.surastiAautomobili(autoId);
     if (!rastasAuto) {
@@ -226,7 +235,7 @@ automobiliai.forEach((auto) => shop1.itrauktiAutomobili(auto));
 // console.log('shop1.priktiAutomobili("auto_3")', shop1.priktiAutomobili("auto_3"));
 // console.log('shop1.priktiAutomobili("auto_4")', shop1.priktiAutomobili("auto_4"));
 
-// shop1.priktiAutomobili("auto_4");
+shop1.priktiAutomobili("auto_4");
 
 // shop1.surastiAautomobili("auto_3");
 
@@ -305,7 +314,7 @@ class GenerateHtml {
 }
 // console.log("GenerateHtml.generuotiSarasa(shop1)", GenerateHtml.generuotiSarasa(shop1));
 // GenerateHtml.generuotiLentelesEilutes(shop1.parduodamiAutomobiliai);
-console.log("GenerateHtml.generuotiLentele(shop1)", GenerateHtml.generuotiLentele(shop1));
+// console.log("GenerateHtml.generuotiLentele(shop1)", GenerateHtml.generuotiLentele(shop1));
 
 // console.clear();
 // let bbb = [1, 3, 5];
@@ -334,3 +343,4 @@ console.log("GenerateHtml.generuotiLentele(shop1)", GenerateHtml.generuotiLentel
 // parduodam automobili
 // israsom saskaita
 //
+CarLog.atspausdinkVeiksmus();
