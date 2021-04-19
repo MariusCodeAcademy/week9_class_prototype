@@ -72,7 +72,10 @@ class Challenge {
 
 let c1 = new Challenge(1, "ve");
 let c2 = new Challenge(2, "EA");
-let c3 = new Challenge(3, "HA");
+let c3 = new Challenge(3, "ME");
+let c4 = new Challenge(4, "HA");
+let c5 = new Challenge(5, "VH");
+let c6 = new Challenge(6, "EX");
 // console.log("c1", c1);
 
 /*
@@ -114,10 +117,31 @@ class User {
     return [...this.#log];
   }
   // 4
-  newSolvedChallenge() {}
+  newSolvedChallenge(chalObj) {
+    // pasitikrinti ar gautas obj sukurtas pagal Challenge klase
+    if (chalObj instanceof Challenge) {
+      let currChallegePoints = chalObj.points;
+      this.#xp += currChallegePoints;
+      this.#log.push(chalObj.id);
+      return;
+    }
+    throw new Error("Challenge is not valid");
+  }
 }
 const u1 = new User("James Bond");
-const u2 = new User("JB Name must be less than 16 characters Name must be less than 16 characters");
+const u2 = new User("Jane Doe");
+
+// paduoti spresti pirmus 2 challegus Jamesui
+u1.newSolvedChallenge(c1);
+u1.newSolvedChallenge(c2);
+// u1.newSolvedChallenge({ name: "blue" });
+
+// paduoti Janei isspresti 3 ir 4 issukius
+u2.newSolvedChallenge(c3);
+u2.newSolvedChallenge(c4);
+
+console.log("u1", u1);
+console.log("u2", u2);
 
 /*
         4. Sukurti naują metodą User klasėje newSolvedChallenge():
