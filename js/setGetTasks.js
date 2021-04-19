@@ -19,6 +19,42 @@ https://edabit.com/challenge/2FF7RKw9RLwc3EBY9
   */
 
 class Challenge {
+  // static availableLevels = ["VE", "EA", "ME", "HA", "VH", "EX"];
+  // Dry - dont repeat yourself
+  // availableLevels === Object.keys(levelToPoints)
+  static levelToPoints = {
+    VE: 5,
+    EA: 10,
+    ME: 20,
+    HA: 40,
+    VH: 80,
+    EX: 120,
+  };
+  #id;
+  #level;
+  constructor(chId, chLevel) {
+    // setter in use
+    this.id = chId;
+    this.level = chLevel.toUpperCase();
+  }
+  set id(val) {
+    // neleisti pakeisti id jei jau nustatytas
+    if (this.#id === undefined) {
+      this.#id = val;
+    } else throw new Error("reiksmes pakeisti negalima");
+  }
+  get id() {
+    return this.#id;
+  }
+  set level(levelVal) {
+    if (Object.keys(Challenge.levelToPoints).includes(levelVal)) {
+      this.#level = levelVal;
+    } else throw new Error("This level is not valid");
+  }
+  get level() {
+    return this.#level;
+  }
+
   /*
         2. Sukurti get'erį Challenge klasėje points
           Metodas turi grąžinti XP (patirties taškų) kiekį priklausomai nuo lygio tipo:
@@ -29,7 +65,15 @@ class Challenge {
               * "VH" = 80 XP
               * "EX" = 120 XP
     */
+  get points() {
+    return Challenge.levelToPoints[this.level];
+  }
 }
+
+let c1 = new Challenge(1, "ve");
+let c2 = new Challenge(2, "EA");
+let c3 = new Challenge(3, "HA1");
+// console.log("c1", c1);
 
 /*
       3. Sukurti klasę User su savybėmis:
