@@ -7,6 +7,37 @@ console.log("inherit people");
 // skaiciuoti kiek bus sukurta objektu pagal klase
 // sugeneruoti dijanti Id kiekvienam objektui
 
+class Person {
+  constructor({ name, surname, idCode, age, sex }) {
+    this.name = name;
+  }
+}
+let p1Data = {
+  name: "bob",
+  surname: "Smith",
+  idCode: 32432344,
+  age: "38",
+  sex: "male",
+};
+const p1 = new Person(p1Data);
+class Workoholic extends Person {
+  #hourlyPay;
+  constructor(personProps, hourlyPay) {
+    super(personProps);
+    this.#hourlyPay = hourlyPay;
+  }
+}
+const w1 = new Workoholic(
+  {
+    name: "bob",
+    surname: "Smith",
+    idCode: 32432344,
+    age: "38",
+    sex: "male",
+  },
+  10
+);
+
 // 2 Sukuriam klase Worker kuri paveldi klase Person
 // prideti konstruktoriuje papildomas savybes
 // privati hours worked kuri bus lygi nuliu;
