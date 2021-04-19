@@ -72,7 +72,7 @@ class Challenge {
 
 let c1 = new Challenge(1, "ve");
 let c2 = new Challenge(2, "EA");
-let c3 = new Challenge(3, "HA1");
+let c3 = new Challenge(3, "HA");
 // console.log("c1", c1);
 
 /*
@@ -87,6 +87,37 @@ let c3 = new Challenge(3, "HA1");
           3.2 xp savybei sukurti tik get'erį, 
           3.3 log savybės get'eris turi grąžinti masyvo kopiją, set'erio nedaryti
   */
+class User {
+  #name;
+  #xp;
+  #log;
+  constructor(argName) {
+    this.name = argName;
+    this.#xp = 0;
+    this.#log = [];
+  }
+
+  set name(val) {
+    // pasitikrinti ar reiksme yra string tipo ir ar dydis yra nuo 2 iki 16
+    if (typeof val !== "string") throw new Error("Name must be string");
+    if (val.length < 2) throw new Error("Name must be more than 2 characters");
+    if (val.length > 16) throw new Error("Name must be less than 16 characters");
+    this.#name = val;
+  }
+  get name() {
+    return this.#name;
+  }
+  get xp() {
+    return this.#xp;
+  }
+  get log() {
+    return [...this.#log];
+  }
+  // 4
+  newSolvedChallenge() {}
+}
+const u1 = new User("James Bond");
+const u2 = new User("JB Name must be less than 16 characters Name must be less than 16 characters");
 
 /*
         4. Sukurti naują metodą User klasėje newSolvedChallenge():
